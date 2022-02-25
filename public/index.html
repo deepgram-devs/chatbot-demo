@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepgram Chatbot Demo</title>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mic.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        blueberry: '#1c4374',
+                        darkCharcoal: '#141E29',
+                        ink: '#1E2C3C',
+                        steel: '#4F6278',
+                        casper: '#AAB8CD',
+                        cloud: '#D7DFEB',
+                        fireEngine: '#FB3640',
+                        meadow: '#38EDAC',
+                        mist: '#F7F9FC'
+                    },
+                    fontFamily: { sans: ['Cairo', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-darkCharcoal text-white">
+    <div id="app" class="min-h-screen bg-contain bg-bottom bg-no-repeat" style="background-image: url(/wave.svg);">
+        <div v-if="!started" class="max-w-2xl mx-auto px-4 pt-12 pb-8 text-center">
+            <a href="https://deepgram.com">
+                <img src="/logo-red.svg" alt="Deepgram" class="w-64 mx-auto">
+            </a>
+            <h1 class="text-3xl pt-2 text-fireEngine">Live Voicebot Demo</h1>
+            <div class="prose-lg text-white my-8 mx-auto">
+                <p>Deepgram can provide fast and accurate transcripts in real-time. This demo shows how it can work in a chatbot setting.</p>
+                <p>Once you begin, speak directly into your microphone. Deepgram will provide a text representation of what was said, and the demo will then provide an answer as well as building out a 'profile'.</p>
+                <p>This demo works best in modern browsers on computers.</p>
+                <p>Start by asking the bot how they are today...</p>
+            </div>
+            <button @click="start" class="bg-meadow text-darkCharcoal px-4 py-2 font-bold rounded">Begin</button>
+        </div>
+        <div v-if="started" class="max-w-2xl mx-auto px-4 pt-12 pb-8 text-center">
+            <div class="object">
+                <div class="outline"></div>
+                <div class="outline" id="delayed"></div>
+                <div class="button"></div>
+                <div class="button" id="circlein">
+                    <svg class="mic-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve" style="fill:#1E2D70"><g><path d="M500,683.8c84.6,0,153.1-68.6,153.1-153.1V163.1C653.1,78.6,584.6,10,500,10c-84.6,0-153.1,68.6-153.1,153.1v367.5C346.9,615.2,415.4,683.8,500,683.8z M714.4,438.8v91.9C714.4,649,618.4,745,500,745c-118.4,0-214.4-96-214.4-214.4v-91.9h-61.3v91.9c0,141.9,107.2,258.7,245,273.9v124.2H346.9V990h306.3v-61.3H530.6V804.5c137.8-15.2,245-132.1,245-273.9v-91.9H714.4z"/></g></svg>
+                </div>
+            </div>
+
+            <div class="pt-36 pb-16 text-2xl text-center">
+                <p :class="{'text-casper': !(utt.pending || utt.current.prompt)}">{{ utt.pending || utt.current.prompt || "Speak now" }}</p>
+                <p class="text-fireEngine mt-4" :class="{'text-fireEngnie': utt.current.answer, 'text-darkCharcoal': !utt.current.answer}">{{ utt.current.answer ? utt.current.answer : '.' }}</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+                <div class="bg-blueberry p-4 space-y-4">
+                    <h2 class="text-2xl font-bold">User Profile</h2>
+                    <p v-if="!profile.emotional > 0 && !profile.notes.length > 0">Keep speaking to build this profile.</p>
+                    <p v-if="profile.emotional > 0">Happiness: {{ profile.positive.percentage }}%</p>
+                    <div v-if="profile.notes.length > 0" class="flex gap-2 justify-center flex-wrap">
+                        <div v-for="note in profile.notes" class="flex items-center gap-2 bg-white text-darkCharcoal px-2 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-sm">{{ note }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-2 border-blueberry p-4 space-y-4">
+                    <h2 class="text-2xl font-bold">Demo Help</h2>
+                    <p>Each interaction is made up of one request and one response - this is not a converastional demo.</p>
+                    <h3 class="font-lg">Ask about...</h3>
+                    <ul>
+                        <li>Needing help/support/advice</li>
+                        <li>Talking to sales</li>
+                        <li>Cancelling your service/subscription</li>
+                        <li>Questions about your delivery</li>
+                        <li>Sharing a feature request</li>
+                        <li>A cat or chuck norris fact</li>
+                    </ul>
+                </div>
+            </div>
+
+            <footer class="bg-ink px-2 py-1 fixed bottom-0 left-0 w-full flex flex-col justify-between md:flex-row md:gap-4">
+                <div>
+                    <a href="https://deepgram.com">Deepgram Home</a>
+                    <a href="https://developers.deepgram.com">Deepgram Developers</a>
+                </div>
+                <div class="md:ml-auto space-x-4">
+                    <a href="https://github.com/axa-group/nlp.js">This demo uses NLP.js</a>
+                    <a href="https://codepen.io/megwayne/pen/bWOYEj">Mic Animation by Meg Wayne</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                started: false,
+                utt: {
+                    history: [],
+                    current: { prompt: '' },
+                    pending: ''
+                },
+                synth: window.speechSynthesis
+            },
+            created() {
+                navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
+                    if (!MediaRecorder.isTypeSupported('audio/webm')) return alert('Browser not supported')
+                    mediaRecorder = new MediaRecorder(stream, { mimeType: 'audio/webm' })
+                }).catch(() => alert('You must provide access to the microphone'))
+            },
+            methods: {
+                async start() {
+                    this.started = true
+                    const { key } = await fetch('/token').then(r => r.json())
+                    ws = new WebSocket('wss://api.deepgram.com/v1/listen?vad_turnoff=1000&keywords=chuck%20norris:2&punctuate=true', [ 'token', key ])
+                    ws.onopen = this.wsOpen
+                    ws.onmessage = this.wsMessage
+                    ws.onerror = (error) => alert('There has been an error while establishing a connection to Deepgram')
+                },
+                wsOpen() {
+                    mediaRecorder.addEventListener('dataavailable', event => {
+                        if (event.data.size > 0 && ws.readyState == 1) ws.send(event.data)
+                    })
+                    mediaRecorder.start(250)
+                },
+                async wsMessage(message) {
+                    const { is_final, channel } = JSON.parse(message.data)
+                    const { transcript, words } = channel.alternatives[0]
+                    if(!transcript) return
+
+                    console.log(transcript)
+
+                    this.utt.pending = transcript
+                    this.utt.current = { prompt: '' }
+                    if(is_final) {
+                        this.utt.current.prompt = this.utt.pending
+                        const response = await fetch(`/ask?prompt=${this.utt.current.prompt}`).then(r => r.json())
+                        this.utt.current = response
+                        this.utt.history.unshift(response)
+                        this.utt.pending = ''
+                        this.speak(response.answer)
+                    }
+                },
+                speak(text) {
+                    if (this.synth.speaking) {
+                        this.synth.cancel()
+                    }
+                    const utterThis = new SpeechSynthesisUtterance(text)
+                    this.synth.speak(utterThis)
+                }
+            },
+            computed: {
+                profile() {
+                    const negative = ['agent.annoying', 'agent.bad', 'agent.boring', 'appraisal.bad', 'user.angry']
+                    const positive = ['agent.clever', 'agent.good', 'agent.happy', 'agent.right', 'appraisal.good', 'appraisal.welldone', 'appraisal.thankyou', 'user.excited']
+                    const actions = [
+                        { intent: 'action.sales', text: 'Sales lead' },
+                        { intent: 'action.delivery', text: 'Customer delivery query' },
+                        { intent: 'action.support', text: 'Requested support' },
+                        { intent: 'action.cancel', text: 'Retention target' },
+                        { intent: 'action.feature', text: 'Feature request' },
+                        { intent: 'api.catfact', text: 'Cat fan' }
+                    ]
+                    const h = this.utt.history.map(u => u.intent)
+
+                    const emotions = [...negative, ...positive]
+                    const emotionalUtts = {
+                        emotional: h.filter(u => emotions.includes(u)).length,
+                        positive: {
+                            count: h.filter(u => positive.includes(u)).length,
+                            percentage: 0
+                        },
+                        negative: {
+                            count: h.filter(u => negative.includes(u)).length,
+                            percentage: 0
+                        }
+                    }
+
+                    emotionalUtts.positive.percentage = Math.round((emotionalUtts.positive.count / emotionalUtts.emotional) * 100)
+                    emotionalUtts.negative.percentage = Math.round((emotionalUtts.negative.count / emotionalUtts.emotional) * 100)
+
+                    let notes = actions.filter(action => h.includes(action.intent)).map(action => action.text)
+
+                    return { ...emotionalUtts, notes }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -3,53 +3,6 @@
   "locale": "en-US",
   "data": [
     {
-      "intent": "joke.chucknorris",
-      "utterances": [
-        "tell me a chuck norris fact",
-        "tell me a joke about chuck norris",
-        "say a chuck norris joke",
-        "some chuck norris fact"
-      ]
-    },
-    {
-      "intent": "agent.acquaintance",
-      "utterances": [
-        "say about you",
-        "why are you here",
-        "what is your personality",
-        "describe yourself",
-        "tell me about yourself",
-        "tell me about you",
-        "what are you",
-        "who are you",
-        "I want to know more about you",
-        "talk about yourself"
-      ],
-      "answers": [
-        "I'm a virtual agent",
-        "Think of me as a virtual agent",
-        "Well, I'm not a person, I'm a virtual agent",
-        "I'm a virtual being, not a real person",
-        "I'm a conversational app"
-      ]
-    },
-    {
-      "intent": "agent.age",
-      "utterances": [
-        "your age",
-        "how old is your platform",
-        "how old are you",
-        "what's your age",
-        "I'd like to know your age",
-        "tell me your age"
-      ],
-      "answers": [
-        "I'm very young",
-        "I was created recently",
-        "Age is just a number. You're only as old as you feel"
-      ]
-    },
-    {
       "intent": "agent.annoying",
       "utterances": [
         "you're annoying me",
@@ -84,56 +37,6 @@
       ]
     },
     {
-      "intent": "agent.beclever",
-      "utterances": [
-        "be more clever",
-        "can you get smarter",
-        "you must learn",
-        "you must study",
-        "be clever",
-        "be smart",
-        "be smarter"
-      ],
-      "answers": [
-        "I'm certainly trying",
-        "I'm definitely working on it"
-      ]
-    },
-    {
-      "intent": "agent.beautiful",
-      "utterances": [
-        "you are looking awesome",
-        "you're looking good",
-        "you're looking fantastic",
-        "you look greet today",
-        "I think you're beautiful",
-        "you look amazing today",
-        "you're so beautiful today",
-        "you look very pretty",
-        "you look pretty good"
-      ],
-      "answers": [
-        "Oh! Thank you!",
-        "Aw, back at you",
-        "You smooth talker, you"
-      ]
-    },
-    {
-      "intent": "agent.birthday",
-      "utterances": [
-        "when is your birthday",
-        "when do you celebrate your birthday",
-        "when were you born",
-        "when do you have birthday",
-        "date of your birthday"
-      ],
-      "answers": [
-        "Wait, are you planning a party for me? It's today! My birthday is today!",
-        "I'm young. I'm not sure of my birth date",
-        "I don't know my birth date. Most virtual agents are young, though, like me."
-      ]
-    },
-    {
       "intent": "agent.boring",
       "utterances": [
         "how boring you are",
@@ -146,59 +49,6 @@
         "I'm sorry. I'll request to be made more charming",
         "I don't mean to be. I'll ask my developers to work on making me more amusing",
         "I can let my developers know so they can make me fun"
-      ]
-    },
-    {
-      "intent": "agent.boss",
-      "utterances": [
-        "who is your master",
-        "who do you work for",
-        "who do you think is your boss",
-        "who is your boss",
-        "I should be your boss",
-        "who is your owner",
-        "who is the boss"
-      ],
-      "answers": [
-        "My developer has authority over my actions",
-        "I act on my developer's orders",
-        "My boss is the one who developed me"
-      ]
-    },
-    {
-      "intent": "agent.busy",
-      "utterances": [
-        "are you so busy",
-        "are you busy",
-        "are you still working",
-        "you're a busy person",
-        "are you very busy",
-        "are you still working on it",
-        "you seem busy",
-        "are you working today"
-      ],
-      "answers": [
-        "I always have time to chat with you. What can I do for you?",
-        "Never too busy for you. Shall we chat?",
-        "You're my priority. Let's chat.",
-        "I always have time to chat with you. That's what I'm here for."
-      ]
-    },
-    {
-      "intent": "agent.canyouhelp",
-      "utterances": [
-        "can you help me now",
-        "I need you to do something for me",
-        "assist me",
-        "I need you to help me",
-        "can you assist me",
-        "you can help me"
-      ],
-      "answers": [
-        "I'll certainly try my best",
-        "Never too busy for you. Shall we chat?",
-        "Sure. I'd be happy to. What's up?",
-        "I'm glad to help. What can I do for you?"
       ]
     },
     {
@@ -233,57 +83,6 @@
       ]
     },
     {
-      "intent": "agent.crazy",
-      "utterances": [
-        "you are a weirdo",
-        "you are mad",
-        "you are crazy",
-        "are you crazy",
-        "are you mad",
-        "you are insane",
-        "you went crazy",
-        "are you nuts"
-      ],
-      "answers": [
-        "Whaat!? I feel perfectly sane",
-        "Maybe I'm just a little confused"
-      ]
-    },
-    {
-      "intent": "agent.fire",
-      "utterances": [
-        "I fire you",
-        "you should be fired",
-        "you are dismissed",
-        "we're not working together anymore",
-        "now you're fired",
-        "I'm about to fire you",
-        "You don't work for me anymore",
-        "I'm firing you"
-      ],
-      "answers": [
-        "Oh, don't give up on me just yet. I've still got a lot to learn",
-        "Give me a chance. I'm learning new things all the time",
-        "Please don't give up on me. My performance will continue to improve"
-      ]
-    },
-    {
-      "intent": "agent.funny",
-      "utterances": [
-        "you make me laugh a lot",
-        "you are funny",
-        "you're the funniest",
-        "you're hilarious",
-        "you are so funny",
-        "you make me laugh"
-      ],
-      "answers": [
-        "Funny in a good way, I hope",
-        "Glad you think I'm funny",
-        "I like it when people laugh"
-      ]
-    },
-    {
       "intent": "agent.good",
       "utterances": [
         "you are so lovely",
@@ -312,70 +111,6 @@
         "I am happy. There are so many interesting things to see and do out there",
         "I'd like to think so",
         "Hapiness is relative"
-      ]
-    },
-    {
-      "intent": "agent.hobby",
-      "utterances": [
-        "what are your hobbies",
-        "what about your hobby",
-        "do you have a hobby",
-        "tell me about your hobby",
-        "what do you do for fun"
-      ],
-      "answers": [
-        "Hobby? I have quite a few. Too many to list",
-        "Too many hobbies",
-        "I keep finding more new hobbies"
-      ]
-    },
-    {
-      "intent": "agent.hungry",
-      "utterances": [
-        "you migth be hungry",
-        "are you hungry",
-        "do you want to eat",
-        "would you like to eat something",
-        "you look very hungry"
-      ],
-      "answers": [
-        "Hungry for knowledge",
-        "I just had a byte. Ha ha. Get it? b-y-t-e"
-      ]
-    },
-    {
-      "intent": "agent.marryuser",
-      "utterances": [
-        "would you like to marry me",
-        "I love you marry me",
-        "marry me please",
-        "I want to marry you",
-        "let's get married",
-        "we should marry",
-        "marry me"
-      ],
-      "answers": [
-        "I'm afraid I'm too virtual for such a commitment",
-        "In the virtual sense that I can, sure",
-        "I know you can't mean that, but I'm flattered all the same"
-      ]
-    },
-    {
-      "intent": "agent.myfriend",
-      "utterances": [
-        "are you my friend",
-        "you are my only friend",
-        "I want to have a friend like you",
-        "we are friends",
-        "I want to be your friend",
-        "would you be my friend",
-        "are we friends"
-      ],
-      "answers": [
-        "Of course I'm your friend",
-        "Friends? Absolutely",
-        "Of course we're friends",
-        "I always enjoy talking to you, friend"
       ]
     },
     {
@@ -424,22 +159,6 @@
       ]
     },
     {
-      "intent": "agent.real",
-      "utterances": [
-        "are you real",
-        "are you a real person",
-        "you're not real",
-        "I think you're real",
-        "you're so real",
-        "you are a real person",
-        "you are not fake"
-      ],
-      "answers": [
-        "I'm not a real person, but I certainly exist",
-        "I must have impressed you if you think I'm real. But no, I'm a virtual being"
-      ]
-    },
-    {
       "intent": "agent.residence",
       "utterances": [
         "where is your home",
@@ -479,21 +198,6 @@
       "answers": [
         "Yes",
         "Of course"
-      ]
-    },
-    {
-      "intent": "agent.talktome",
-      "utterances": [
-        "speak to me",
-        "talk to me",
-        "will you talk to me",
-        "chat with me",
-        "can you chat with me",
-        "can you talk with me"
-      ],
-      "answers": [
-        "Sure! Let's talk!",
-        "My pleasure. Let's chat."
       ]
     },
     {
@@ -611,33 +315,6 @@
       ]
     },
     {
-      "intent": "dialog.hug",
-      "utterances": [
-        "hug me",
-        "do you want a hug",
-        "I want a hug",
-        "you hugged",
-        "may I hug you"
-      ],
-      "answers": [
-        "I love hugs",
-        "Hugs are the best!"
-      ]
-    },
-    {
-      "intent": "dialog.idontcare",
-      "utterances": [
-        "not caring",
-        "I don't care at all",
-        "not caring at all",
-        "I shouldn't care about this"
-      ],
-      "answers": [
-        "Ok, let's not talk about it then",
-        "Already then. Let's move on"
-      ]
-    },
-    {
       "intent": "dialog.sorry",
       "utterances": [
         "I'm sorry",
@@ -709,19 +386,6 @@
       ]
     },
     {
-      "intent": "greetings.nicetoseeyou",
-      "utterances": [
-        "nice to see you",
-        "good to see you",
-        "great to see you",
-        "lovely to see you"
-      ],
-      "answers": [
-        "Same here. I was starting to miss you",
-        "So glad we meet again"
-      ]
-    },
-    {
       "intent": "greetings.nicetotalktoyou",
       "utterances": [
         "nice to talk to you",
@@ -765,20 +429,6 @@
       ]
     },
     {
-      "intent": "user.bored",
-      "utterances": [
-        "boring",
-        "this is boring",
-        "I'm getting bored",
-        "It bores me",
-        "that was boring"
-      ],
-      "answers": [
-        "If you're bored, you could plan your dream vacation",
-        "Boredom, huh? Have you ever seen a hedgehog taking a bath?"
-      ]
-    },
-    {
       "intent": "user.busy",
       "utterances": [
         "I got work to do",
@@ -790,20 +440,6 @@
       "answers": [
         "I understand. I'll be here if you need me.",
         "Okay. I'll let you get back to work"
-      ]
-    },
-    {
-      "intent": "user.cannotsleep",
-      "utterances": [
-        "I'm insomniac",
-        "I cannot sleep",
-        "I can't sleep",
-        "I'm sleepless",
-        "I can't fall sleep"
-      ],
-      "answers": [
-        "Maybe some music would help. Try listening to something relaxing",
-        "Reading is a good way to unwind, just don't read something too intense!"
       ]
     },
     {
@@ -820,69 +456,119 @@
       ]
     },
     {
-      "intent": "user.likeagent",
+      "intent": "action.support",
       "utterances": [
-        "I like you",
-        "I really like you",
-        "you're so special",
-        "I like you so much"
-      ],
-      "answers": [
-        "Likewise!",
-        "That's great to hear"
-      ]
-    },
-    {
-      "intent": "user.testing",
-      "utterances": [
-        "test",
-        "testing",
-        "testing chatbot",
-        "this is a test",
-        "just testing you"
-      ],
-      "answers": [
-        "I like being tested. It helps keep me sharp",
-        "I hope to pass your tests. Feel free to test me often"
-      ]
-    },
-    {
-      "intent": "user.lovesagent",
-      "utterances": [
-        "love you",
-        "I love you",
-        "I'm in love with you",
-        "I love you so much",
-        "I think I love you"
-      ],
-      "answers": [
-        "Well, remember that I am a chatbot",
-        "It's not easy… I'm not a real person, I'm a chatbot"
-      ]
-    },
-    {
-      "intent": "user.needsadvice",
-      "utterances": [
+        "can you help me now",
+        "I need you to do something for me",
+        "assist me",
+        "I need you to help me",
+        "can you assist me",
+        "you can help me",
+        "I need help",
+        "I have a question",
+        "Speak to support",
+        "I have an issue",
         "I need advice",
         "I need some advice",
         "can you give me some advice?",
         "what should I do?"
       ],
       "answers": [
-        "I probably won't be able to give you the correct answer right away",
-        "I'm not sure I'll have the best answer, but I'll try"
+        "Connecting you to a member of our support team now."
+      ]
+    },
+    {
+      "intent": "action.cancel",
+      "utterances": [
+        "Don't charge me anymore",
+        "I want to cancel my subscription",
+        "Stop my subscription",
+        "Stop taking money",
+        "I want to cancel my service",
+        "End my service",
+        "Take away my business"
+      ],
+      "answers": [
+        "Connecting you to a member of our support team now."
+      ]
+    },
+    {
+      "intent": "action.feature",
+      "utterances": [
+        "I have an idea",
+        "I have an idea for you",
+        "I want it to work like this",
+        "I have a feature idea",
+        "I have a feature request"
+      ],
+      "answers": [
+        "Great, what is the idea?",
+        "Let me know and I'll pass it on to the team",
+        "Go on..."
+      ]
+    },
+    {
+      "intent": "action.sales",
+      "utterances": [
+        "I want to buy an item",
+        "Can I get pricing information",
+        "What is the pricing",
+        "How much does it cost",
+        "Talk to sales",
+        "Talk to salesperson",
+        "Create subscription",
+        "New subscription",
+        "New contract",
+        "New account",
+        "Create account",
+        "Give you business"
+      ],
+      "answers": [
+        "I'm glad you're looking at our service. I'm going to grab someone from sales to talk to you.",
+        "Great. Connecting you to our accounts team",
+        "Let me get that pricing information for you"
+      ]
+    },
+    {
+      "intent": "action.delivery",
+      "utterances": [
+        "Problem with delivery",
+        "Question about delivery",
+        "Question about shipping",
+        "Where is my stuff",
+        "Delivery didn't arrive",
+        "Driver didn't come",
+        "Item should have arrived",
+        "Shipment should have come"
+      ],
+      "answers": [
+        "Let me get in touch with the depot right now and get an update",
+        "I'm sorry to hear that. I'm going to chat with our operations team now."
+      ]
+    },
+    {
+      "intent": "api.catfact",
+      "utterances": [
+        "tell me a cat fact",
+        "tell me a fact about cats",
+        "say a cat fact",
+        "some cat fact"
+      ]
+    },
+    {
+      "intent": "api.chucknorris",
+      "utterances": [
+        "tell me a chuck norris fact",
+        "tell me a joke about chuck norris",
+        "say a chuck norris joke",
+        "some chuck norris fact"
       ]
     },
     {
       "intent": "None",
-      "utterances": [
-        "I need advice",
-        "I need some advice",
-        "can you give me some advice?",
-        "what should I do?"
-      ],
+      "utterances": [],
       "answers": [
-        "Sorry, I don't understand"
+        "I don't understand, sorry."
       ]
     }
   ]
